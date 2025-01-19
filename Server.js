@@ -9,6 +9,10 @@ const server = createServer((request, response) => {
 
 server.listen(3333)
 
+
+
+
+
 /*
 resquest : mantem as informações da requisição
 response : recebe as informações da resposta
@@ -20,4 +24,5 @@ server = createServer ((request, response) => {função})
     recebe o request e response e passa a função a ser execultada
     .listen(int porta) -> execulta a API quando a porta for chamada ex: .listen(3333) || localhost:3333
 
+    
 */
