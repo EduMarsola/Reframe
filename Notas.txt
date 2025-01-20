@@ -39,3 +39,51 @@ http
         server.put('/video/:id')
         server.delete('/video/:id', () => {})
         //Route parameter ':id' adiciona como parametro de busca
+
+
+banco de dados em memoria
+    guarda na ram da aplicação, perde quando reinicia
+    somente para teste
+
+
+set : não aceita duplicatas
+map : aceita duplicatas e é tratado como objeto
+    .set(chave, valor) -> relaciona a chave ao valor descrito
+
+node:crypto
+    randomUUID -> universal unique ID (id único universal)
+
+extenção rest client
+    criar arquivo .http
+    cria uma rota com o comando desejado, por padrão vai get    
+        POST http://localhost:3333/videos
+    configurar requisição   
+        POST http://localhost:3333/videos
+        Content-Type: application/json //tipo de dado aceito
+        Accept-Language: pt //linguagem que sera mandada ao back end 
+        {
+            "titulo" : "video1"
+        } //corpo do dado 
+
+
+request body
+    envia o corpo de um formulário
+
+Short Sintax
+    const {tittle, description, duration} = request.body
+    console.log(body)
+    database.create({
+        tittle : tittle,
+        description : description,
+        duration : duration,
+    })
+
+    --vira--
+     
+    const {tittle, description, duration} = request.body
+    console.log(body)
+    database.create({
+        tittle,
+        description,
+        duration,
+    })
