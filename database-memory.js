@@ -10,7 +10,7 @@ export class DatabaseMemory{
             const data = videoArray[1]
             return {
                 id,
-                ...data, //spread populator do JS
+                ...data, //spread populator do Js
             } 
         }) //encapsula o iterator para array
     }

@@ -49,6 +49,8 @@ banco de dados em memoria
 set : não aceita duplicatas
 map : aceita duplicatas e é tratado como objeto
     .set(chave, valor) -> relaciona a chave ao valor descrito
+    .values() -> devolve os objetos
+    .entrys() -> retorna os ids e os objetos em forma de arrays
 
 node:crypto
     randomUUID -> universal unique ID (id único universal)
@@ -79,7 +81,7 @@ Short Sintax
     })
 
     --vira--
-     
+
     const {tittle, description, duration} = request.body
     console.log(body)
     database.create({
@@ -87,3 +89,4 @@ Short Sintax
         description,
         duration,
     })
+

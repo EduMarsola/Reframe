@@ -31,7 +31,7 @@ server.put('/videos/:id', (request, reply) => {
     database.update(videoID, {
         title,
         description,
-        duration
+        duration,
     })
     return reply.statusCode(204).send() //sucesso sem conteúdo na resposta
 })
