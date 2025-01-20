@@ -1,0 +1,27 @@
+resquest : mantem as informações da requisição
+response : recebe as informações da resposta
+    .write(string texto) -> escreve o texto na página
+    .end() -> finaliza a requisição
+
+
+server = createServer ((request, response) => {função})
+    recebe o request e response e passa a função a ser execultada
+    .listen(int porta) -> execulta a API quando a porta for chamada ex: .listen(3333) || localhost:3333
+
+
+
+package.json : configurações do node, cria de fabrica ao usar npm node 
+    "dev" : "node --watch --no-warnings server.js" -> cria uma execulção do código ao usar "npm run dev" no terminal
+
+
+
+comandos de terminal
+    node arquivo.ext -> execulta o arquivo
+        --watch -> ao salvar o arquivo já atualiza na página
+    npm install "" -> intala a dependencia pelo gerenciador de pacotes
+
+
+
+fastify : microframework do node
+    npm intall fastify -> instala no projeto
+        cria os arquivos "node_modules" e "package-lock.json"
