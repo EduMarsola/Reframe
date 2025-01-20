@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "Server_nativo": "node --watch ServerNativo.js",
+    "Server_fastify": "node --watch ServerFastify.js"
   },
   "keywords": [],
   "author": "",

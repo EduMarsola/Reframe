@@ -25,3 +25,17 @@ comandos de terminal
 fastify : microframework do node
     npm intall fastify -> instala no projeto
         cria os arquivos "node_modules" e "package-lock.json"
+
+
+http
+    .get : pega o registro
+    .post : cria o registro
+    .put : alteração de tudo
+    .patch : alteração especifica
+    .delete : deleta o registro
+    pode ser usado a mesma rota com o comando diferente
+        server.post('/video', () => {})
+        server.get('/video', () => {})
+        server.put('/video/:id')
+        server.delete('/video/:id', () => {})
+        //Route parameter ':id' adiciona como parametro de busca
