@@ -39,7 +39,7 @@ http
         server.put('/video/:id')
         server.delete('/video/:id', () => {})
         //Route parameter ':id' adiciona como parametro de busca
-
+ 
 
 banco de dados em memoria
     guarda na ram da aplicação, perde quando reinicia
@@ -90,3 +90,13 @@ Short Sintax
         duration,
     })
 
+query parameters
+    opcionais para listagem
+    GET http://localhost:3333/videos?search=node : devolve os dados onde a palavra node aparece
+    no metodo GET(JS) temos para usar o search
+        server.get('/videos', (request, reply) => {
+            const serch = request.query
+            console.log(serch)
+            const videos = database.list()
+            return videos
+        })

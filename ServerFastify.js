@@ -21,7 +21,9 @@ server.post('/videos', (request, reply) => {
 })
 
 server.get('/videos', (request, reply) => {
-    const videos = database.list()
+    const search = request.query.search
+    console.log(search)
+    const videos = database.list(search)
     return videos
 })
 
@@ -29,15 +31,19 @@ server.put('/videos/:id', (request, reply) => {
     const videoID = request.params.id
     const {tittle, description, duration} = request.body
     database.update(videoID, {
-        title,
+        tittle,
         description,
         duration,
     })
-    return reply.statusCode(204).send() //sucesso sem conteúdo na resposta
+    return reply.status(204).send() //sucesso sem conteúdo na resposta
 })
 
 
-server.delete('/videos/:id', () => {})
+server.delete('/videos/:id', (request, reply) => {
+    const videoID = request.params.id
+    database.delete(videoID)
+    return reply.status(204).send()
+})
 
 server.listen({port: 3333})
 
