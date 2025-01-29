@@ -103,4 +103,8 @@ query parameters
 
 
 biblioteca dotenv
-    temporaria para .env (variaveis de ambiente)
+    temporaria para .env (variaveis de ambiente), a partir do node v20 já é nativo
+    node -v : mostra a versão do node
+
+import 'dotenv/config'
+    cria uma classe de variaveis globais disponivel em process.env
