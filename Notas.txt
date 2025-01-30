@@ -23,7 +23,7 @@ comandos de terminal
 
 
 fastify : microframework do node
-    npm intall fastify -> instala no projeto
+    npm install fastify -> instala no projeto
         cria os arquivos "node_modules" e "package-lock.json"
 
 

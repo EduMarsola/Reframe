@@ -29,11 +29,12 @@ server.get('/videos', async (request, reply) => {
     return videos
 })
 
+
 server.put('/videos/:id', (request, reply) => {
     const videoID = request.params.id
-    const {tittle, description, duration} = request.body
+    const {title, description, duration} = request.body
     database.Update(videoID, {
-        tittle,
+        title,
         description,
         duration,
     })
@@ -47,10 +48,13 @@ server.delete('/videos/:id', (request, reply) => {
     return reply.status(204).send()
 })
 
+
 server.get('/create', () => {
     database.CreateTableVideos()
     return reply.status(204).send()
 })
+
+
 server.listen({port: 3333})
 
 

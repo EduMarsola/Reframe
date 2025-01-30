@@ -28,13 +28,14 @@ export class DatabaseSQL{
         const {title, description, duration} = video
         await pool.query(`insert into Videos (id, title, description, duration) values ('${id}', '${title}', '${description}', ${duration})`)
     }
-    async Update()
+    async Update(videoId, video)
     {
-
+        await pool.query(`update Videos set title = '${video.title}', description = '${video.description}', duration = '${video.duration}' where id = '${videoId}'`)
+        return await pool.query(`select * from Videos where title = '${newTitle}'`)
     }
-    async Delete()
+    async Delete(videoId)
     {
-
+        await pool.query(`delete from Videos where id=${videoId}`)
     }
     async CreateTableVideos()
     {
