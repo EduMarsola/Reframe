@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { serialize } from 'node:v8'
 import mysql from 'mysql2'
 import  dotenv  from 'dotenv'
+import { title } from 'node:process'
 
 dotenv.config()
 
@@ -18,7 +19,7 @@ export class DatabaseSQL{
     async List(search = '')
     {
         let resposta
-        if(search){ resposta = await pool.query(`"select * from Videos where title like "%${search}%"`)}
+        if(search){ resposta = await pool.query(`"select * from Videos where title like "%${search}%" `)}
         else{ resposta = await pool.query("select * from Videos")}
         return resposta[0]
     }
@@ -30,12 +31,13 @@ export class DatabaseSQL{
     }
     async Update(videoId, video)
     {
-        await pool.query(`update Videos set title = '${video.title}', description = '${video.description}', duration = '${video.duration}' where id = '${videoId}'`)
-        return await pool.query(`select * from Videos where title = '${newTitle}'`)
+        const {title, description, duration} = video
+        await pool.query(`update Videos set title = '${title}', description = '${description}', duration = ${duration} where id = '${videoId}'`)
+        //return await pool.query(`select * from Videos where id = '${videoId}'`)
     }
     async Delete(videoId)
     {
-        await pool.query(`delete from Videos where id=${videoId}`)
+        await pool.query(`delete from Videos where id='${videoId}'`)
     }
     async CreateTableVideos()
     {

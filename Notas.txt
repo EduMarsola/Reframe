@@ -107,4 +107,5 @@ biblioteca dotenv
     node -v : mostra a versão do node
 
 import 'dotenv/config'
-    cria uma classe de variaveis globais disponivel em process.env
+    cria uma classe de variaveis globais disponivel em process.env.VARIAVEL
+    port: process.env.PORT ?? 3333 usa a variavel de ambiente PORT ou caso não exista usa a porta 3333

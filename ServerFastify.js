@@ -30,32 +30,33 @@ server.get('/videos', async (request, reply) => {
 })
 
 
-server.put('/videos/:id', (request, reply) => {
-    const videoID = request.params.id
+server.put('/videos/:videoId', async (request, reply) => {
+    const videoId = request.params.videoId
     const {title, description, duration} = request.body
-    database.Update(videoID, {
+    await database.Update(videoId, {
         title,
         description,
         duration,
     })
-    return reply.status(204).send() //sucesso sem conteúdo na resposta
+    return reply.status(204).send()
+     
 })
 
 
-server.delete('/videos/:id', (request, reply) => {
+server.delete('/videos/:id', async (request, reply) => {
     const videoID = request.params.id
-    database.Delete(videoID)
+    await database.Delete(videoID)
+    return reply.status(204).send()//sucesso sem conteúdo na resposta
+})
+
+
+server.get('/create', async () => {
+    await database.CreateTableVideos()
     return reply.status(204).send()
 })
 
 
-server.get('/create', () => {
-    database.CreateTableVideos()
-    return reply.status(204).send()
-})
-
-
-server.listen({port: 3333})
+server.listen({port: process.env.PORT ?? 3333})
 
 
 
